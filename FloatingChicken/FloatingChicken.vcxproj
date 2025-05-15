@@ -136,10 +136,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\MenuScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Button.h" />
     <ClInclude Include="Include\Enum.h" />
     <ClInclude Include="Include\Game.h" />
     <ClInclude Include="Include\Global.h" />

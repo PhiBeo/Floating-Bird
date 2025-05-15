@@ -20,6 +20,9 @@
     <ClCompile Include="Source\Game.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Button.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Game.h">
@@ -35,6 +38,9 @@
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Include\Global.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Button.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>

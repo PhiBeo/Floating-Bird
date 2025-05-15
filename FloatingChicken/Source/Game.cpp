@@ -2,11 +2,9 @@
 
 Game::Game() :
 	mWindow(new sf::RenderWindow(sf::VideoMode({ SCREEN_WIDTH, SCREEN_HEIGHT }), GAME_NAME)),
-	currentState(SceneState::Menu),
-	mMenuScene(mWindow)
+	currentState(SceneState::Menu)
 {
-	//scenes.push_back(mMenuScene);
-	scenes.push_back(new MenuScene(mWindow, SceneState::Menu));
+	mScenes.push_back(std::make_unique<MenuScene>(mWindow));
 }
 
 void Game::GameInit()
@@ -35,7 +33,10 @@ void Game::GameShutDown()
 {
 	std::cout << "Shut Down Game!" << std::endl;
 
-
+	for (int i = 0; i < mScenes.size(); i++)
+	{
+		mScenes[i]->Unload();
+	}
 
 	mWindow = nullptr;
 	delete mWindow;
@@ -43,21 +44,13 @@ void Game::GameShutDown()
 
 void Game::Load()
 {
-	switch (currentState)
+	for (int i = 0; i < mScenes.size(); i++)
 	{
-	case SceneState::Menu:
-		mMenuScene.Load();
-		break;
-	case SceneState::Setting:
-		break;
-	case SceneState::HowToPlay:
-		break;
-	case SceneState::Gameplay:
-		break;
-	case SceneState::Gameover:
-		break;
-	default:
-		break;
+		if (mScenes[i]->GetSceneState() == currentState)
+		{
+			mScenes[i]->Load();
+			break;
+		}
 	}
 }
 
@@ -74,11 +67,11 @@ void Game::Render()
 {
 	mWindow->clear(sf::Color::Cyan);
 
-	for (int i = 0; i < scenes.size(); i++)
+	for (int i = 0; i < mScenes.size(); i++)
 	{
-		if (scenes[i].GetSceneState() == currentState)
+		if (mScenes[i]->GetSceneState() == currentState)
 		{
-			scenes[i].Render();
+			mScenes[i]->Render();
 			break;
 		}
 	}

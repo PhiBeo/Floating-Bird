@@ -5,7 +5,6 @@
 #include "Enum.h"
 #include "MenuScene.h"
 #include "Global.h"
-#include "algorithm"
 
 class Game
 {
@@ -32,7 +31,5 @@ private:
 
 	SceneState currentState;
 
-	MenuScene mMenuScene;
-
-	std::vector<*Scene> scenes;
+	std::vector<std::unique_ptr<Scene>> mScenes;
 };

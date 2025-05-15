@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 //Window config
 #define GAME_NAME "Flappy Bird"
@@ -33,7 +34,7 @@
 
 //File path
 //texture
-#define DEFAULT_FONT "font/OpenSans-Bold.ttf"
+#define DEFAULT_FONT "font/OpenSans.ttf"
 #define GAME_FONT "font/gomarice_game_continue_02.ttf"
 #define VOLUMN_BAR "texture/volumn_color.png"
 #define VOLUMN_BAR_EMPTY "texture/volumn_empty.png"
